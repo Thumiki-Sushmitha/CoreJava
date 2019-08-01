@@ -29,6 +29,31 @@ public class Time {
 		return t3;
 	}
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + hrs;
+		result = prime * result + min;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Time other = (Time) obj;
+		if (hrs != other.hrs)
+			return false;
+		if (min != other.min)
+			return false;
+		return true;
+	}
+
 	public Time addTime(Time t) {
 		Time t3 = new Time(0,0);
 		int AddMin = getMin() + t.getMin();
